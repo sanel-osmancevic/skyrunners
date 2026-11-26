@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f6f8;
+  --foreground: #0f172a;
+  /* Plava sa klupskog motiva linija i njena tamnija nijansa. */
+  --brand: #243c7c;
+  --brand-dark: #1a2c5e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-accent: #f26b1d;
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Svetle linije u pozadini svih stranica; stoje na mestu dok se sadržaj skroluje. */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100lvh;
+  z-index: -1;
+  background: url("../assets/linije-svetle.svg") center / cover no-repeat;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Plave linije na tamnoplavoj podlozi (zaglavlje i prijava). Veličinu zadaje element. */
+.linije-plave {
+  background-color: var(--brand-dark);
+  background-image: url("../assets/linije-plave.svg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
