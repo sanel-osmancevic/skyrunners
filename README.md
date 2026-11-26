@@ -55,7 +55,8 @@ Funkcionalni deo sajta kluba: prijava članova preko Google naloga, unos ličnih
    AUTH_GOOGLE_ID="....apps.googleusercontent.com"
    AUTH_GOOGLE_SECRET="GOCSPX-..."
    ```
-   `AUTH_SECRET` je već generisan u `.env` (novi: `npx auth secret`).
+   `.env` se ne nalazi na gitu. Ako ne postoji (npr. posle preuzimanja na drugom računaru), kopiraj
+   `.env.example` u `.env` i generiši `AUTH_SECRET` komandom `npx auth secret`.
 
 ### 2. Start
 
